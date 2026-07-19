@@ -21,7 +21,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Sagar Sonewane | Full-Stack & Mobile Developer Portfolio",
+  title: "Sagar's Portfolio",
   description: "Personal portfolio website of Sagar Sonewane, MCA student and full-stack & mobile developer specializing in React, Next.js, Kotlin, and Android.",
 };
 
