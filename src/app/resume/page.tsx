@@ -87,22 +87,22 @@ export default function Resume() {
               
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-ink/75 pt-1">
                 <a 
-                  href="https://github.com/sagarsonewane" 
+                  href="https://github.com/Sagar-Sonewane" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-coral transition-colors font-semibold"
                 >
                   <Github size={14} />
-                  github.com/sagarsonewane
+                  github.com/Sagar-Sonewane
                 </a>
                 <a 
-                  href="https://linkedin.com/in/sagarsonewane" 
+                  href="https://www.linkedin.com/in/sagar-sonewane/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-coral transition-colors font-semibold"
                 >
                   <Linkedin size={14} />
-                  linkedin.com/in/sagarsonewane
+                  linkedin.com/in/sagar-sonewane
                 </a>
               </div>
             </div>

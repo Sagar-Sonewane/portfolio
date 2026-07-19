@@ -225,7 +225,7 @@ export default function Home() {
               </a>
 
               <a 
-                href="https://github.com/sagarsonewane" 
+                href="https://github.com/Sagar-Sonewane" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-sky-50 hover:border-sky-300 rounded-md group transition-all"
@@ -235,12 +235,12 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="text-xs text-ink/50 font-sans block">GitHub</span>
-                  <span className="text-xs md:text-sm font-semibold block">github.com/sagarsonewane</span>
+                  <span className="text-xs md:text-sm font-semibold block">github.com/Sagar-Sonewane</span>
                 </div>
               </a>
 
               <a 
-                href="https://linkedin.com/in/sagarsonewane" 
+                href="https://www.linkedin.com/in/sagar-sonewane/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-rose-50 hover:border-rose-300 rounded-md group transition-all"
@@ -250,7 +250,7 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
-                  <span className="text-xs md:text-sm font-semibold block">linkedin.com/in/sagarsonewane</span>
+                  <span className="text-xs md:text-sm font-semibold block">linkedin.com/in/sagar-sonewane</span>
                 </div>
               </a>
 
