@@ -21,8 +21,14 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Sagar's Portfolio",
+  title: "Sagar's Portfolio | Full-Stack & Mobile Developer",
   description: "Personal portfolio website of Sagar Sonewane, MCA student and full-stack & mobile developer specializing in React, Next.js, Kotlin, and Android.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ]
+  }
 };
 
 export default function RootLayout({
@@ -63,8 +69,19 @@ export default function RootLayout({
         {/* Page Footer */}
         <footer className="w-full py-8 px-4 border-t border-stone-200/60 bg-paper-dark/50 text-center text-xs md:text-sm text-ink/60 font-sans mt-12 select-none">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <span>✂️ Cut, taped & glued with Next.js & Framer Motion</span>
+            <div className="space-y-1 text-center sm:text-left">
+              <div>✂️ Cut, taped & glued with Next.js & Framer Motion</div>
+              <div className="text-[11px] text-ink/40">
+                <a 
+                  href="https://www.flaticon.com/free-icons/coffee" 
+                  title="coffee icons"
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:underline text-ink/50"
+                >
+                  Coffee icons created by Magnific - Flaticon
+                </a>
+              </div>
             </div>
             <div className="font-handwritten text-lg text-coral -rotate-2">
               sagar sonewane — 2026 ✌️
