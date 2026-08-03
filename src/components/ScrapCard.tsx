@@ -66,7 +66,7 @@ export default function ScrapCard({
         boxShadow: "0 20px 25px -5px rgba(28,28,26,0.1), 0 10px 10px -5px rgba(28,28,26,0.04)"
       }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className={`relative p-6 ${rotation} ${getColorClass()} ${getBorderClass()} ${getPaperStyleClass()} shadow-[3px_3px_10px_rgba(0,0,0,0.06)] rounded-sm ${className}`}
+      className={`relative p-4 sm:p-6 max-sm:rotate-0 ${rotation} ${getColorClass()} ${getBorderClass()} ${getPaperStyleClass()} shadow-[3px_3px_10px_rgba(0,0,0,0.06)] rounded-sm ${className}`}
     >
       {/* Attachments */}
       {attachment === "tape-top" && (
@@ -117,7 +117,7 @@ export default function ScrapCard({
       )}
 
       {/* Card Content */}
-      <div className="relative z-0 h-full">{children}</div>
+      <div className="relative z-0">{children}</div>
     </motion.div>
   );
 }

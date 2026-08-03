@@ -152,7 +152,7 @@ export default function Projects() {
               </div>
 
               {/* Links Footer */}
-              <div className="pt-6 border-t border-dashed border-stone-300/60 mt-6 flex items-center gap-4 select-none">
+              <div className="pt-6 border-t border-dashed border-stone-300/60 mt-6 flex flex-wrap items-center gap-3 select-none">
                 {project.liveLink && (
                   <a
                     href={project.liveLink}

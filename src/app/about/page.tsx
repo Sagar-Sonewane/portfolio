@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award, CheckSquare, BrainCircuit, ExternalLink } from "lucide-react";
+import { GraduationCap, Briefcase, Award, CheckSquare, BrainCircuit, ExternalLink, ArrowRight } from "lucide-react";
 import ScrapCard from "@/components/ScrapCard";
 
 export default function About() {
@@ -120,7 +121,7 @@ export default function About() {
     >
       {/* 1. Page Header & Intro Letter */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <div className="lg:col-span-1 space-y-3">
+        <div className="lg:col-span-1 space-y-3 text-center md:text-left">
           <span className="font-handwritten text-lg md:text-xl text-coral block -rotate-1 select-none">
             about the builder
           </span>
@@ -133,7 +134,7 @@ export default function About() {
         </div>
 
         <motion.div variants={itemVariants} className="lg:col-span-2">
-          <ScrapCard paperStyle="clean" attachment="paperclip" rotation="rotate-0" color="white" className="p-8">
+          <ScrapCard paperStyle="clean" attachment="paperclip" rotation="rotate-0" color="white" className="p-6 sm:p-8">
             <div className="space-y-4">
               <span className="font-handwritten text-2xl text-coral block -rotate-1 select-none">
                 dear visitor,
@@ -160,18 +161,18 @@ export default function About() {
         </h2>
 
         {/* Timeline representation */}
-        <div className="relative pl-6 md:pl-8 border-l-2 border-dashed border-stone-300 space-y-10 py-4 select-text">
+        <div className="relative pl-6 sm:pl-9 border-l-2 border-dashed border-stone-300 space-y-8 sm:space-y-10 py-4 select-text">
           {educationTimeline.map((item, index) => {
             const Icon = item.icon;
             return (
               <motion.div key={index} variants={itemVariants} className="relative">
-                {/* Timeline node marker */}
-                <div className="absolute -left-[35px] md:-left-[43px] top-1.5 w-6 h-6 rounded-full bg-paper border-2 border-ink flex items-center justify-center shadow-sm z-10">
+                {/* Timeline node marker - aligned cleanly with card header */}
+                <div className="absolute -left-[37px] sm:-left-[49px] top-5 w-6 h-6 rounded-full bg-paper border-2 border-ink flex items-center justify-center shadow-sm z-20">
                   <Icon size={12} className="text-ink" />
                 </div>
                 
-                {/* Handwritten Year Tag in margin */}
-                <div className="absolute -left-[120px] top-1 hidden md:block select-none text-right w-16 font-handwritten text-lg text-coral rotate-6">
+                {/* Handwritten Year Tag in margin (desktop) */}
+                <div className="absolute -left-[130px] top-4 hidden md:block select-none text-right w-16 font-handwritten text-lg text-coral rotate-6">
                   {item.year.split(" ")[0]}
                 </div>
 
@@ -181,8 +182,8 @@ export default function About() {
                   color={item.color}
                   className="max-w-2xl"
                 >
-                  <div className="space-y-2">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div className="space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-dashed border-stone-200/80 pb-2">
                       <div className="flex items-center gap-2">
                         <span className="md:hidden font-semibold text-xs text-coral bg-coral/10 px-2 py-0.5 rounded select-none">
                           {item.year}
@@ -191,26 +192,28 @@ export default function About() {
                           {item.category}
                         </span>
                       </div>
-                      <span className="text-xs font-bold text-ink bg-stone-100 border border-stone-200 rounded px-2 py-0.5 w-fit">
+                      <span className="text-xs font-bold text-ink bg-stone-100 border border-stone-200 rounded px-2.5 py-0.5 w-fit shadow-2xs">
                         {item.grade}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold font-sans text-ink leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-ink/70">
-                      {item.institution}
-                    </p>
+                    <div className="space-y-0.5">
+                      <h3 className="text-base sm:text-lg font-bold font-sans text-ink leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-ink/70">
+                        {item.institution}
+                      </p>
+                    </div>
 
                     {item.details && (
-                      <p className="text-xs md:text-sm text-ink/80 leading-relaxed font-sans pt-2 border-t border-dashed border-stone-200 mt-2">
+                      <p className="text-xs md:text-sm text-ink/80 leading-relaxed font-sans pt-1">
                         {item.details}
                       </p>
                     )}
 
                     {item.isPlaceholder && (
-                      <div className="mt-3 font-handwritten text-sm text-coral -rotate-1 select-none">
+                      <div className="mt-2 font-handwritten text-sm text-coral -rotate-1 select-none">
                         * looking for the next step! 🚀 *
                       </div>
                     )}
@@ -274,7 +277,7 @@ export default function About() {
                   Active on coding platforms, focusing on problem-solving consistency, data structures, and algorithms.
                 </p>
                 <div className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200 rounded-md">
-                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-900 select-none">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-900 select-none shrink-0">
                     100+
                   </div>
                   <div>
@@ -296,23 +299,33 @@ export default function About() {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <ScrapCard paperStyle="grid" attachment="paperclip" rotation="rotate-2" color="yellow" className="h-full">
+          <ScrapCard paperStyle="grid" attachment="paperclip" rotation="rotate-2" color="yellow" className="h-full flex flex-col justify-between">
             <div className="space-y-4">
               <h3 className="text-lg font-bold font-sans text-ink flex items-center gap-2 border-b border-dashed border-stone-200 pb-2">
                 <CheckSquare size={18} className="text-coral" />
-                Certifications
+                Certifications & Honors
               </h3>
 
               <div className="space-y-3 text-sm text-ink/80 select-text leading-relaxed font-sans font-medium">
                 <p>
                   Continual professional training and certifications completed during academic coursework:
                 </p>
-                <ul className="list-disc pl-4 space-y-2 text-xs md:text-sm font-semibold text-ink/80 leading-normal">
+                <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm font-semibold text-ink/80 leading-normal">
                   <li>NPTEL Course Certification in Java Programming</li>
-                  <li>Coursera Foundation Courses in Database Systems (SQL)</li>
-                  <li>Advanced Application Development Seminar Certificate (G. H. Raisoni)</li>
+                  <li>Coursera Certification in Database Systems & SQL</li>
+                  <li>Academic Merit Gold Award (B.Voc 9.67 CGPA)</li>
                 </ul>
               </div>
+            </div>
+
+            <div className="pt-4 border-t border-dashed border-stone-300 mt-4">
+              <Link
+                href="/certifications"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-coral hover:text-ink transition-colors"
+              >
+                <span>View Full Certifications Page</span>
+                <ArrowRight size={14} />
+              </Link>
             </div>
           </ScrapCard>
         </motion.div>

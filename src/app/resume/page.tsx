@@ -54,33 +54,33 @@ export default function Resume() {
           attachment="paperclip"
           paperStyle="clean"
           color="white"
-          className="print-card p-6 md:p-12 shadow-2xl relative overflow-hidden"
+          className="print-card p-4 sm:p-6 md:p-12 shadow-2xl relative overflow-hidden"
         >
           {/* Decorative double line border for resume look */}
-          <div className="border border-stone-200 p-4 md:p-8 h-full space-y-8 select-text">
+          <div className="border border-stone-200 p-3 sm:p-6 md:p-8 h-full space-y-6 sm:space-y-8 select-text">
             
             {/* Header / Contact Info */}
             <div className="text-center space-y-3 pb-6 border-b border-stone-300">
-              <h2 className="text-3xl md:text-4xl font-bold font-sans text-ink uppercase tracking-wide">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-sans text-ink uppercase tracking-wide">
                 Sagar Sonewane
               </h2>
               
-              <p className="text-sm md:text-base font-semibold text-coral font-sans tracking-wide">
+              <p className="text-xs sm:text-sm md:text-base font-semibold text-coral font-sans tracking-wide">
                 Full-Stack & Mobile Developer — MCA Student
               </p>
               
               {/* Contact Metadata */}
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-ink/75">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs md:text-sm text-ink/75">
                 <span className="flex items-center gap-1.5">
-                  <MapPin size={14} className="text-ink/60" />
+                  <MapPin size={14} className="text-ink/60 shrink-0" />
                   Nagpur, India
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Phone size={14} className="text-ink/60" />
+                  <Phone size={14} className="text-ink/60 shrink-0" />
                   +91 95884 59145
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Mail size={14} className="text-ink/60" />
+                  <Mail size={14} className="text-ink/60 shrink-0" />
                   sagarsonewane2511@gmail.com
                 </span>
               </div>
@@ -124,7 +124,7 @@ export default function Resume() {
               </h3>
               
               <div className="space-y-4">
-                <div className="flex justify-between items-start gap-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between items-start gap-2 sm:gap-4">
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink">
                       Master of Computer Applications (MCA)
@@ -136,7 +136,7 @@ export default function Resume() {
                       Coursework: Data Structures & Algorithms, Object Oriented Programming, DBMS, Operating Systems, Computer Networks
                     </p>
                   </div>
-                  <div className="text-right whitespace-nowrap">
+                  <div className="sm:text-right whitespace-nowrap">
                     <span className="text-xs font-bold text-ink block">2025 – 2027</span>
                     <span className="text-xs font-semibold text-coral bg-rose-50 border border-rose-200 px-2 py-0.5 rounded inline-block mt-1">
                       CGPA: 9.64 (Sem 1)
@@ -144,7 +144,7 @@ export default function Resume() {
                   </div>
                 </div>
 
-                <div className="flex justify-between items-start gap-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between items-start gap-2 sm:gap-4">
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink">
                       B.Voc. Software Development
@@ -156,21 +156,21 @@ export default function Resume() {
                       Acquired strong foundation in Java, Database design, and Full-Stack web principles
                     </p>
                   </div>
-                  <div className="text-right whitespace-nowrap">
+                  <div className="sm:text-right whitespace-nowrap">
                     <span className="text-xs font-bold text-ink block">2022 – 2025</span>
                     <span className="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded inline-block mt-1">
-                      CGPA: 9.67
+                      CGPA: 9.67 (Gold Merit)
                     </span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   <div className="flex justify-between items-center p-2 bg-stone-50 border border-stone-150 rounded">
                     <div>
                       <span className="font-bold text-xs block">Higher Secondary Certificate (HSC)</span>
                       <span className="text-[10px] text-ink/60">Class XII - Science stream</span>
                     </div>
-                    <span className="text-xs font-bold text-ink bg-white border border-stone-200 px-1.5 py-0.5 rounded">57.38%</span>
+                    <span className="text-xs font-bold text-ink bg-white border border-stone-200 px-1.5 py-0.5 rounded shrink-0">57.38%</span>
                   </div>
 
                   <div className="flex justify-between items-center p-2 bg-stone-50 border border-stone-150 rounded">
@@ -178,7 +178,7 @@ export default function Resume() {
                       <span className="font-bold text-xs block">Secondary School Certificate (SSC)</span>
                       <span className="text-[10px] text-ink/60">Class X - Matriculation</span>
                     </div>
-                    <span className="text-xs font-bold text-ink bg-white border border-stone-200 px-1.5 py-0.5 rounded">74.40%</span>
+                    <span className="text-xs font-bold text-ink bg-white border border-stone-200 px-1.5 py-0.5 rounded shrink-0">74.40%</span>
                   </div>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export default function Resume() {
 
               <div className="space-y-4">
                 <div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink flex items-center gap-1.5">
                       Sagar Constructions — Business Website
                     </h4>
@@ -226,13 +226,13 @@ export default function Resume() {
                   </div>
                   <ul className="list-disc pl-4 space-y-1 mt-1 text-xs md:text-sm text-ink/80 font-sans font-medium">
                     <li>Built production website for a live contractor client, routing inquiries to a Supabase database.</li>
-                    <li>Connected dynamic client forms to email pipelines using Resend api notifications.</li>
+                    <li>Connected dynamic client forms to email pipelines using Resend API notifications.</li>
                     <li>Achieved 95+ Lighthouse score through SSR content pre-fetching on Vercel hosting.</li>
                   </ul>
                 </div>
 
                 <div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink">
                       Streakly — Habit Tracker Android App
                     </h4>
@@ -245,7 +245,7 @@ export default function Resume() {
                 </div>
 
                 <div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink">
                       Neighbour — Peer Resource Marketplace
                     </h4>
@@ -258,15 +258,17 @@ export default function Resume() {
               </div>
             </div>
 
-            {/* Certifications / achievements */}
+            {/* Certifications & Honors */}
             <div className="space-y-2">
               <h3 className="text-base md:text-lg font-bold uppercase tracking-wider text-ink border-b border-stone-200 pb-1">
-                Certifications & Extracurriculars
+                Certifications & Academic Honors
               </h3>
               <ul className="list-disc pl-4 space-y-1 text-xs md:text-sm text-ink/80 font-sans font-medium">
-                <li>100+ Algorithm problems solved on LeetCode</li>
-                <li>NPTEL Course Certificate in Java Programming (National Programme on Technology Enhanced Learning)</li>
-                <li>Coursera certification in Database Management (PostgreSQL/SQL foundations)</li>
+                <li>NPTEL Course Certification in Java Programming (IIT Kharagpur)</li>
+                <li>Coursera Certification in Database Systems & SQL Foundations (PostgreSQL)</li>
+                <li>Academic Gold Merit Award — B.Voc Software Development (9.67 CGPA)</li>
+                <li>MCA Semester 1 Academic Distinction (9.64 CGPA)</li>
+                <li>100+ Algorithmic Problems Solved on LeetCode</li>
               </ul>
             </div>
 
