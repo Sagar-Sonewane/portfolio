@@ -1,35 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
-  <!-- Cup Lid Top -->
-  <path d="M120 48L392 48L428 116H84L120 48Z" fill="#36393E" stroke="#000000" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Lid Top Right Shadow -->
-  <path d="M350 48L392 48L428 116H386L350 48Z" fill="#282B2E"/>
-
-  <!-- Cup Lid Rim -->
-  <rect x="64" y="100" width="384" height="60" rx="8" fill="#36393E" stroke="#000000" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Lid Rim Right Shadow -->
-  <rect x="364" y="100" width="84" height="60" fill="#282B2E" rx="8"/>
-  <rect x="64" y="100" width="384" height="60" rx="8" fill="none" stroke="#000000" stroke-width="24"/>
-
-  <!-- Cup Body Base (White Paper Cup) -->
-  <path d="M100 160L148 480H364L412 160H100Z" fill="#E8ECEF" stroke="#000000" stroke-width="24" stroke-linejoin="round"/>
-  <!-- Cup Body Right Shadow -->
-  <path d="M350 160L314 480H364L412 160H350Z" fill="#CFD6DC"/>
-
-  <!-- Orange Sleeve -->
-  <path d="M88 200L116 380H396L424 200H88Z" fill="#F78F1E" stroke="#000000" stroke-width="24" stroke-linejoin="round"/>
-  <!-- Sleeve Right Shadow -->
-  <path d="M358 200L336 380H396L424 200H358Z" fill="#DE7907"/>
-
-  <!-- Coffee Bean Outer & Fill -->
-  <ellipse cx="256" cy="290" rx="52" ry="68" fill="#5C2D13" stroke="#000000" stroke-width="22"/>
-  <!-- Coffee Bean Right Shadow -->
-  <path d="M256 222C284.719 222 308 252.445 308 290C308 327.555 284.719 358 256 358V222Z" fill="#44210D"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Yellow Notebook Base -->
+  <rect x="70" y="30" width="350" height="450" rx="55" fill="#FFC843" stroke="#000000" stroke-width="26" stroke-linejoin="round"/>
   
-  <!-- Coffee Bean Center S-Line -->
-  <path d="M256 226C242 250 270 270 256 290C242 310 270 330 256 354" stroke="#000000" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <!-- Vertical Binder Separator Line -->
+  <line x1="70" y1="30" x2="70" y2="480" stroke="#000000" stroke-width="26"/>
 
-  <!-- Black Contour Lines / Outlines -->
-  <path d="M100 160L148 480H364L412 160" stroke="#000000" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M88 200H424" stroke="#000000" stroke-width="24" stroke-linecap="round" fill="none"/>
-  <path d="M116 380H396" stroke="#000000" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <!-- 4 Cyan Binder Rings on the Left -->
+  <rect x="10" y="70" width="80" height="34" rx="17" fill="#3BD3FA" stroke="#000000" stroke-width="18"/>
+  <rect x="10" y="175" width="80" height="34" rx="17" fill="#3BD3FA" stroke="#000000" stroke-width="18"/>
+  <rect x="10" y="280" width="80" height="34" rx="17" fill="#3BD3FA" stroke="#000000" stroke-width="18"/>
+  <rect x="10" y="385" width="80" height="34" rx="17" fill="#3BD3FA" stroke="#000000" stroke-width="18"/>
+
+  <!-- White Label Box on Cover -->
+  <rect x="140" y="95" width="220" height="140" rx="30" fill="#FFFFFF" stroke="#000000" stroke-width="22"/>
+  <circle cx="250" cy="106" r="9" fill="#000000"/>
+  <line x1="190" y1="155" x2="310" y2="155" stroke="#000000" stroke-width="20" stroke-linecap="round"/>
+  <line x1="220" y1="195" x2="280" y2="195" stroke="#000000" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- Pen resting on bottom-right -->
+  <g transform="translate(10, 10)">
+    <!-- Pen Clip -->
+    <path d="M 445 220 C 485 240 480 300 440 310" stroke="#000000" stroke-width="22" stroke-linecap="round" fill="none"/>
+    <!-- Pen White Top Cap -->
+    <path d="M 425 140 L 460 185 M 415 130 L 450 175" stroke="#000000" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 410 135 C 410 120 445 140 460 160 C 470 175 450 190 440 185 Z" fill="#FFFFFF" stroke="#000000" stroke-width="22" stroke-linejoin="round"/>
+    
+    <!-- Pen Main Barrel (Cyan) -->
+    <path d="M 435 180 L 350 290 L 305 390 L 390 305 L 475 195 Z" fill="#3BD3FA" stroke="#000000" stroke-width="22" stroke-linejoin="round"/>
+    
+    <!-- Pen Barrel Divider Line -->
+    <line x1="365" y1="270" x2="415" y2="310" stroke="#000000" stroke-width="20"/>
+
+    <!-- Pen Tip (Light Cyan) -->
+    <path d="M 305 390 L 285 440 L 340 420 L 350 290 Z" fill="#A4EFFF" stroke="#000000" stroke-width="22" stroke-linejoin="round"/>
+    
+    <!-- Pen Nib Point -->
+    <path d="M 285 440 L 272 455" stroke="#000000" stroke-width="24" stroke-linecap="round"/>
+  </g>
 </svg>
