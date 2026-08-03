@@ -10,8 +10,10 @@ Built using **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and *
 
 * **Paper Background & Texture**: Warm off-white paper base (`#FAF7F0`) overlaid with a subtle, custom base64 SVG fractal noise pattern giving a realistic paper grain.
 * **Handmade Vibe**: Elements alternate in rotation (`-2deg` to `2deg`), and are "taped" or "pinned" to the grid. Cards straighten, lift, and deepen their shadows on hover.
-* **Highlighter Nav Bar**: A fluid navigation header that uses Framer Motion `layoutId` to animate a yellow highlighter indicator behind the active page tab.
+* **Highlighter Nav Bar**: A fluid navigation header that uses Framer Motion `layoutId` to animate a yellow highlighter indicator behind the active page tab, complete with a responsive mobile navigation drawer.
+* **Certifications & Awards Showcase**: A dedicated page with interactive category filters (**Certifications**, **Awards & Honors**, **Achievements**) showcasing verified NPTEL certificates, academic gold merit awards, and competitive programming milestones.
 * **Notebook Rules Manifesto**: An interactive "Rules for Me" developer manifesto styled like a yellow notebook page torn out and paperclipped to the background.
+* **Polaroid Photo Frame**: Homepage polaroid card featuring Sagar's profile photo (`/sagarphoto.jpg`) with a handwritten caption.
 * **Print-Ready Digital CV**: A complete resume layout styled like a clean CV page. Optimized with custom `@media print` rules, allowing a clean, zero-clutter **Save as PDF** from the browser's print dialog.
 
 ---
@@ -29,10 +31,11 @@ Built using **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and *
 ## 🗂️ Project Structure
 
 ```bash
-├── public/                 # Static assets (favicons, vercel/next icons)
+├── public/                 # Static assets (sagarphoto.jpg, favicons, icons)
 ├── src/
 │   ├── app/                # Next.js App Router Page directories
 │   │   ├── about/          # Biography, education timeline & skills categories
+│   │   ├── certifications/ # NPTEL certifications, academic gold merit & CP achievements
 │   │   ├── projects/       # 4 core full-stack & mobile builds
 │   │   ├── resume/         # CV view & print-to-PDF button
 │   │   ├── globals.css     # Tailwind v4 theme, noise grain overlay & animations
@@ -40,7 +43,7 @@ Built using **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and *
 │   └── components/         # Reusable scrapbook components
 │       ├── Badge.tsx       # Bouncy tag sticker components
 │       ├── Icons.tsx       # Custom SVG brand assets (GitHub, LinkedIn)
-│       ├── Navbar.tsx      # Client-side highlighted nav menu
+│       ├── Navbar.tsx      # Client-side highlighted nav menu & mobile drawer
 │       ├── ScrapCard.tsx   # Wrapper scrap paper (supports tape, pins, paperclips)
 │       └── Tape.tsx        # Jagged transparent / amber washi tape overlay
 ├── package.json
@@ -77,25 +80,16 @@ npm run build
 
 ## ✏️ Customization Guide
 
-### Replace the Polaroid Avatar
-Currently, the polaroid photo renders a clean initials/sparkle placeholder box. To display your real photo:
-1. Drop your photo inside the `public/` directory and name it `profile.jpg` (or `profile.png`).
-2. Open `src/app/page.tsx` and search for the **Polaroid Photo Section**.
-3. Replace the placeholder `div` with an Next.js `<Image>` component pointing to `/profile.jpg`:
-   ```tsx
-   <Image 
-     src="/profile.jpg" 
-     alt="Sagar Sonewane" 
-     width={220} 
-     height={220} 
-     className="object-cover rounded-sm"
-   />
-   ```
+### Profile Photo Placement
+The polaroid photo renders Sagar's profile photo served from `public/sagarphoto.jpg`. To replace it with your own photo:
+1. Drop your image into `public/sagarphoto.jpg`.
+2. `src/app/page.tsx` uses Next.js `<Image src="/sagarphoto.jpg" fill ... />` inside the polaroid frame.
 
 ### Modifying Content
 * **Homepage Details & Manifesto**: Edit `src/app/page.tsx`.
 * **Projects Showcase**: Add or update projects inside the `projectsData` array in `src/app/projects/page.tsx`.
-* **Biography & Timeline**: Edit `src/app/about/page.tsx`.
+* **Certifications & Awards**: Update `itemsData` in `src/app/certifications/page.tsx`.
+* **Biography & Education Timeline**: Edit `src/app/about/page.tsx`.
 * **Full Resume**: Update the layout text fields in `src/app/resume/page.tsx`.
 
 ---
