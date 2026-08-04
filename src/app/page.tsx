@@ -10,6 +10,8 @@ import ScrapCard from "@/components/ScrapCard";
 import Badge from "@/components/Badge";
 import Tape from "@/components/Tape";
 
+import ContactForm from "@/components/ContactForm";
+
 export default function Home() {
   // Stagger animation container
   const containerVariants = {
@@ -227,81 +229,71 @@ export default function Home() {
       {/* 5. CONTACT / CTA SECTION */}
       <motion.section 
         variants={itemVariants}
-        className="pt-4"
+        className="pt-4 space-y-8"
       >
-        <ScrapCard attachment="pin" rotation="rotate-0" color="white" paperStyle="grid" className="max-w-3xl mx-auto">
-          <div className="text-center py-4 sm:py-6 space-y-6 max-w-xl mx-auto">
-            <div className="space-y-2">
-              <span className="font-handwritten text-xl sm:text-2xl text-coral select-none block -rotate-2">
-                let&apos;s build something together!
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-sans text-ink">Get in touch</h3>
+        {/* Interactive Contact Form Component */}
+        <ContactForm />
+
+        {/* Quick Contact Links Row */}
+        <div className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left select-text">
+          <a 
+            href="mailto:sagarsonewane2511@gmail.com" 
+            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-amber-50 hover:border-amber-300 rounded-md group transition-all min-w-0 shadow-2xs"
+          >
+            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-900 group-hover:scale-110 transition-transform shrink-0">
+              <Mail size={16} />
             </div>
-
-            <p className="text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed">
-              Whether you want to build a business website, discuss full-stack React architectures, offline Android development, or just chat, drop me a message!
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left max-w-xl mx-auto pt-2 select-text">
-              <a 
-                href="mailto:sagarsonewane2511@gmail.com" 
-                className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-amber-50 hover:border-amber-300 rounded-md group transition-all min-w-0"
-              >
-                <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-900 group-hover:scale-110 transition-transform shrink-0">
-                  <Mail size={16} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-xs text-ink/50 font-sans block">Email</span>
-                  <span className="text-xs sm:text-sm font-semibold block truncate">sagarsonewane2511@gmail.com</span>
-                </div>
-              </a>
-
-              <a 
-                href="https://github.com/Sagar-Sonewane" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-sky-50 hover:border-sky-300 rounded-md group transition-all min-w-0"
-              >
-                <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-900 group-hover:scale-110 transition-transform shrink-0">
-                  <Github size={16} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-xs text-ink/50 font-sans block">GitHub</span>
-                  <span className="text-xs sm:text-sm font-semibold block truncate">github.com/Sagar-Sonewane</span>
-                </div>
-              </a>
-
-              <a 
-                href="https://www.linkedin.com/in/sagar-sonewane/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-rose-50 hover:border-rose-300 rounded-md group transition-all min-w-0"
-              >
-                <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-900 group-hover:scale-110 transition-transform shrink-0">
-                  <Linkedin size={16} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
-                  <span className="text-xs sm:text-sm font-semibold block truncate">linkedin.com/in/sagar-sonewane</span>
-                </div>
-              </a>
-
-              <a 
-                href="tel:+919588459145" 
-                className="flex items-center gap-3 p-3 bg-stone-50 border border-stone-200/80 hover:bg-emerald-50 hover:border-emerald-300 rounded-md group transition-all min-w-0"
-              >
-                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-900 group-hover:scale-110 transition-transform shrink-0">
-                  <Phone size={16} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-xs text-ink/50 font-sans block">Phone</span>
-                  <span className="text-xs sm:text-sm font-semibold block truncate">+91 95884 59145</span>
-                </div>
-              </a>
+            <div className="min-w-0 flex-1">
+              <span className="text-xs text-ink/50 font-sans block">Direct Email</span>
+              <span className="text-xs sm:text-sm font-semibold block truncate">sagarsonewane2511@gmail.com</span>
             </div>
-          </div>
-        </ScrapCard>
+          </a>
+
+          <a 
+            href="https://github.com/Sagar-Sonewane" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-sky-50 hover:border-sky-300 rounded-md group transition-all min-w-0 shadow-2xs"
+          >
+            <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-900 group-hover:scale-110 transition-transform shrink-0">
+              <Github size={16} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="text-xs text-ink/50 font-sans block">GitHub</span>
+              <span className="text-xs sm:text-sm font-semibold block truncate">github.com/Sagar-Sonewane</span>
+            </div>
+          </a>
+
+          <a 
+            href="https://www.linkedin.com/in/sagar-sonewane/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-rose-50 hover:border-rose-300 rounded-md group transition-all min-w-0 shadow-2xs"
+          >
+            <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-900 group-hover:scale-110 transition-transform shrink-0">
+              <Linkedin size={16} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
+              <span className="text-xs sm:text-sm font-semibold block truncate">linkedin.com/in/sagar-sonewane</span>
+            </div>
+          </a>
+
+          <a 
+            href="tel:+919588459145" 
+            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-emerald-50 hover:border-emerald-300 rounded-md group transition-all min-w-0 shadow-2xs"
+          >
+            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-900 group-hover:scale-110 transition-transform shrink-0">
+              <Phone size={16} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="text-xs text-ink/50 font-sans block">Phone</span>
+              <span className="text-xs sm:text-sm font-semibold block truncate">+91 95884 59145</span>
+            </div>
+          </a>
+        </div>
       </motion.section>
     </motion.div>
   );
 }
+
