@@ -51,10 +51,10 @@ export default function Resume() {
       <div className="max-w-4xl mx-auto">
         <ScrapCard
           rotation="rotate-0"
-          attachment="paperclip"
+          attachment="pin"
           paperStyle="clean"
           color="white"
-          className="print-card p-4 sm:p-6 md:p-12 shadow-2xl relative overflow-hidden"
+          className="print-card p-4 sm:p-6 md:p-12 shadow-2xl relative"
         >
           {/* Decorative double line border for resume look */}
           <div className="border border-stone-200 p-3 sm:p-6 md:p-8 h-full space-y-6 sm:space-y-8 select-text">

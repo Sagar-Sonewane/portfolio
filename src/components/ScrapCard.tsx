@@ -103,14 +103,14 @@ export default function ScrapCard({
       )}
 
       {attachment === "paperclip" && (
-        <div className="absolute left-6 -top-5 z-20 pointer-events-none select-none transform rotate-12">
+        <div className="absolute left-6 -top-4 z-20 pointer-events-none select-none transform rotate-12">
           {/* Metallic paperclip */}
-          <svg width="24" height="48" viewBox="0 0 24 48" fill="none" className="filter drop-shadow-[2px_2px_1px_rgba(0,0,0,0.15)]">
+          <svg width="24" height="38" viewBox="0 0 24 38" fill="none" className="filter drop-shadow-[1px_2px_2px_rgba(0,0,0,0.2)]">
             <path
-              d="M12 4C8.686 4 6 6.686 6 10V38C6 41.314 8.686 44 12 44C15.314 44 18 41.314 18 38V14C18 11.79 16.21 10 14 10C11.79 10 10 11.79 10 14V36H12V14C12 12.89 12.89 12 14 12C15.11 12 16 12.89 16 14V38C16 40.21 14.21 42 12 42C9.79 42 8 40.21 8 38V10C8 7.79 9.79 6 12 6C14.21 6 16 7.79 16 10V34H18V10C18 6.686 15.314 4 12 4Z"
-              fill="#A0A0A0"
-              stroke="#505050"
-              strokeWidth="0.5"
+              d="M12 2C8.686 2 6 4.686 6 8V30C6 33.314 8.686 36 12 36C15.314 36 18 33.314 18 30V12C18 9.79 16.21 8 14 8C11.79 8 10 9.79 10 12V28H12V12C12 10.89 12.89 10 14 10C15.11 10 16 10.89 16 12V30C16 32.21 14.21 34 12 34C9.79 34 8 32.21 8 30V8C8 5.79 9.79 4 12 4C14.21 4 16 5.79 16 8V26H18V8C18 4.686 15.314 2 12 2Z"
+              fill="#94A3B8"
+              stroke="#475569"
+              strokeWidth="0.75"
             />
           </svg>
         </div>
