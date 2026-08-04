@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, AlertCircle, Loader2, Mail } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Loader2, Mail, ChevronDown, Check } from "lucide-react";
 import ScrapCard from "./ScrapCard";
 import Tape from "./Tape";
 
@@ -16,6 +16,8 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const topicOptions = [
     "Full-Stack Web Project",
@@ -24,7 +26,18 @@ export default function ContactForm() {
     "General Discussion / Hello"
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (status === "error") {
       setStatus("idle");
@@ -68,6 +81,7 @@ export default function ContactForm() {
     });
     setStatus("idle");
     setErrorMsg("");
+    setDropdownOpen(false);
   };
 
   const mailtoUrl = `mailto:sagarsonewane2511@gmail.com?subject=${encodeURIComponent(
@@ -192,24 +206,63 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Topic Select Field */}
-              <div className="space-y-1">
-                <label htmlFor="topic" className="block text-xs font-bold uppercase tracking-wider text-stone-600 font-sans">
+              {/* Custom Scrapbook Dropdown Field */}
+              <div className="space-y-1 relative" ref={dropdownRef}>
+                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 font-sans">
                   What are we building?
                 </label>
-                <select
-                  id="topic"
-                  name="topic"
-                  value={formData.topic}
-                  onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 bg-stone-50/80 border border-stone-200 rounded-md text-sm text-ink focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-200/60 font-sans transition-all cursor-pointer"
+                
+                {/* Trigger Button */}
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="w-full flex items-center justify-between px-3.5 py-2.5 bg-stone-50/90 border border-stone-200 hover:border-amber-300 rounded-md text-sm text-ink font-sans transition-all focus:outline-none focus:ring-2 focus:ring-amber-200/60 cursor-pointer shadow-2xs select-none"
                 >
-                  {topicOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
+                  <span className="font-semibold text-ink/90">{formData.topic}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`text-coral transition-transform duration-200 ${
+                      dropdownOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </button>
+
+                {/* Animated Option Popover Menu */}
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-stone-200 rounded-md shadow-xl z-30 overflow-hidden py-1"
+                    >
+                      {topicOptions.map((opt) => {
+                        const isSelected = formData.topic === opt;
+                        return (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() => {
+                              setFormData((prev) => ({ ...prev, topic: opt }));
+                              setDropdownOpen(false);
+                            }}
+                            className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm font-medium transition-colors text-left cursor-pointer ${
+                              isSelected
+                                ? "bg-amber-100/80 text-ink font-bold border-l-4 border-coral"
+                                : "text-ink/80 hover:bg-stone-100 hover:text-ink"
+                            }`}
+                          >
+                            <span>{opt}</span>
+                            {isSelected && (
+                              <Check size={14} className="text-coral shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Message Field */}
