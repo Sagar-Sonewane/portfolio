@@ -25,9 +25,12 @@ export const metadata: Metadata = {
   description: "Personal portfolio website of Sagar Sonewane, MCA student and full-stack & mobile developer specializing in React, Next.js, Kotlin, and Android.",
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.svg", type: "image/svg+xml" }
-    ]
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" }
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: ["/icon.png"]
   }
 };
 
