@@ -121,16 +121,38 @@ export default function About() {
     >
       {/* 1. Page Header & Intro Letter */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <div className="lg:col-span-1 space-y-3 text-center md:text-left">
-          <span className="font-handwritten text-lg md:text-xl text-coral block -rotate-1 select-none">
-            about the builder
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ink font-sans">
-            My Journey
-          </h1>
-          <p className="text-ink/70 text-sm leading-relaxed">
-            A look into my academic pathway, technical skill sets, and certifications.
-          </p>
+        <div className="lg:col-span-1 space-y-4 text-center md:text-left">
+          <div className="space-y-1">
+            <span className="font-handwritten text-lg md:text-xl text-coral block -rotate-1 select-none">
+              about the builder
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ink font-sans">
+              My Journey
+            </h1>
+            <p className="text-ink/70 text-sm leading-relaxed">
+              A look into my academic pathway, technical skill sets, and certifications.
+            </p>
+          </div>
+
+          {/* Quick Bio Metric Cards */}
+          <div className="grid grid-cols-2 gap-2.5 pt-2 select-none">
+            <div className="bg-amber-100/90 border border-amber-300 rounded p-2.5 text-left shadow-2xs -rotate-1">
+              <span className="text-[10px] uppercase font-bold text-amber-900 tracking-wider block">Degree</span>
+              <span className="text-xs font-bold text-ink block">MCA (2025-27)</span>
+            </div>
+            <div className="bg-rose-100/90 border border-rose-300 rounded p-2.5 text-left shadow-2xs rotate-1">
+              <span className="text-[10px] uppercase font-bold text-rose-900 tracking-wider block">Gold CGPA</span>
+              <span className="text-xs font-bold text-ink block">9.67 Scorer</span>
+            </div>
+            <div className="bg-sky-100/90 border border-sky-300 rounded p-2.5 text-left shadow-2xs rotate-1">
+              <span className="text-[10px] uppercase font-bold text-sky-900 tracking-wider block">Core Focus</span>
+              <span className="text-xs font-bold text-ink block">React & Kotlin</span>
+            </div>
+            <div className="bg-emerald-100/90 border border-emerald-300 rounded p-2.5 text-left shadow-2xs -rotate-1">
+              <span className="text-[10px] uppercase font-bold text-emerald-900 tracking-wider block">Location</span>
+              <span className="text-xs font-bold text-ink block">Nagpur, IN</span>
+            </div>
+          </div>
         </div>
 
         <motion.div variants={itemVariants} className="lg:col-span-2">

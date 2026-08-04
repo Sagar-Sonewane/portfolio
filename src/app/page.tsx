@@ -1,19 +1,32 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, ArrowRight, MapPin, Sparkles, BookOpen, Award } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, ArrowRight, MapPin, Sparkles, BookOpen, Award, Check, Copy } from "lucide-react";
 import { Github, Linkedin } from "@/components/Icons";
 import Link from "next/link";
 import Image from "next/image";
 import ScrapCard from "@/components/ScrapCard";
 import Badge from "@/components/Badge";
 import Tape from "@/components/Tape";
-
 import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
-  // Stagger animation container
+  const [checkedRules, setCheckedRules] = useState<number[]>([0, 1, 2]);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const toggleRule = (idx: number) => {
+    setCheckedRules((prev) =>
+      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
+    );
+  };
+
+  const copyEmailToClipboard = () => {
+    navigator.clipboard.writeText("sagarsonewane2511@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -43,6 +56,12 @@ export default function Home() {
           variants={itemVariants}
           className="lg:col-span-2 space-y-6"
         >
+          {/* Live Availability Status Pill */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-300 rounded-full text-xs font-semibold text-emerald-800 shadow-2xs select-none -rotate-1">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Available for Full-Stack & Mobile Roles</span>
+          </div>
+
           <div className="space-y-2">
             <span className="font-handwritten text-lg md:text-xl text-coral block -rotate-1 select-none">
               hey there! my name is
@@ -61,14 +80,14 @@ export default function Home() {
               </span>
             </h2>
 
-            <p className="text-base md:text-lg text-ink/80 max-w-xl leading-relaxed">
+            <p className="text-base md:text-lg text-ink/80 max-w-xl leading-relaxed font-sans font-medium">
               &quot;Shipping full-stack and mobile products end-to-end — from React and Next.js on the web to native Kotlin on Android.&quot;
             </p>
           </div>
 
           {/* Location & Quote Row */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <div className="flex items-center gap-1 text-xs sm:text-sm text-ink/70 bg-stone-100/80 border border-stone-200/60 rounded px-2.5 py-1 select-none">
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm text-ink/75 bg-stone-100/90 border border-stone-200/80 rounded px-2.5 py-1 select-none font-semibold">
               <MapPin size={14} className="text-coral shrink-0" />
               <span>Nagpur, India</span>
             </div>
@@ -131,9 +150,14 @@ export default function Home() {
         <ScrapCard paperStyle="grid" attachment="pin" rotation="rotate-1" color="yellow" className="max-w-4xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-1 sm:p-2">
             <div className="space-y-1.5 text-center sm:text-left">
-              <span className="font-handwritten text-base sm:text-lg text-coral block -rotate-1 select-none">
-                honors & verified credentials
-              </span>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                <span className="font-handwritten text-base sm:text-lg text-coral block -rotate-1 select-none">
+                  honors & verified credentials
+                </span>
+                <span className="stamp-badge stamp-merit">
+                  Gold Merit
+                </span>
+              </div>
               <h3 className="text-xl sm:text-2xl font-bold font-sans text-ink flex items-center justify-center sm:justify-start gap-2">
                 <Award size={22} className="text-coral shrink-0" />
                 Certifications, Awards & Achievements
@@ -155,26 +179,58 @@ export default function Home() {
 
       {/* 4. RULE BOOK & WRITING SECTION */}
       <section className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-        {/* Notebook Lined Rule Book */}
+        {/* Interactive Notebook Lined Rule Book */}
         <motion.div 
           variants={itemVariants}
           className="md:col-span-3"
         >
           <ScrapCard paperStyle="lined" attachment="paperclip" rotation="-rotate-1" color="yellow">
             <div className="space-y-4">
-              <div className="border-b-2 border-coral/30 pb-2">
-                <span className="font-handwritten text-sm text-coral select-none">my development manifesto</span>
-                <h3 className="text-2xl font-bold font-sans tracking-tight text-ink">Rules for Me</h3>
+              <div className="border-b-2 border-coral/30 pb-2 flex items-center justify-between">
+                <div>
+                  <span className="font-handwritten text-sm text-coral select-none">my development manifesto</span>
+                  <h3 className="text-2xl font-bold font-sans tracking-tight text-ink">Rules for Me</h3>
+                </div>
+                <span className="font-handwritten text-xs text-stone-500 -rotate-2 hidden sm:block">
+                  * click rules to check! *
+                </span>
               </div>
               
-              <ol className="list-decimal pl-4 space-y-3.5 text-xs sm:text-sm font-semibold text-ink/80 select-text leading-relaxed">
-                <li>build the smallest working version first, then iterate.</li>
-                <li>ship things real users touch — side projects should have a live link.</li>
-                <li>offline-first and fast beats feature-rich and fragile.</li>
-                <li>own it end-to-end: design, build, deploy, and the bugs at 2am.</li>
-                <li>learn the framework&apos;s defaults before fighting them.</li>
-                <li>stay a student — CGPA is a snapshot, not the ceiling.</li>
-              </ol>
+              <div className="space-y-2.5 pt-1">
+                {[
+                  "build the smallest working version first, then iterate.",
+                  "ship things real users touch — side projects should have a live link.",
+                  "offline-first and fast beats feature-rich and fragile.",
+                  "own it end-to-end: design, build, deploy, and the bugs at 2am.",
+                  "learn the framework's defaults before fighting them.",
+                  "stay a student — CGPA is a snapshot, not the ceiling."
+                ].map((rule, idx) => {
+                  const isChecked = checkedRules.includes(idx);
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => toggleRule(idx)}
+                      className={`w-full flex items-start gap-2.5 text-left p-1.5 rounded transition-all cursor-pointer ${
+                        isChecked ? "bg-amber-100/70" : "hover:bg-stone-100/60"
+                      }`}
+                    >
+                      <span className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold transition-all ${
+                        isChecked 
+                          ? "bg-coral border-rose-700 text-white shadow-2xs rotate-3" 
+                          : "border-stone-400 bg-white/80 text-stone-400"
+                      }`}>
+                        {isChecked ? "✓" : idx + 1}
+                      </span>
+                      <span className={`text-xs sm:text-sm font-semibold transition-all ${
+                        isChecked ? "line-through text-ink/50" : "text-ink/90"
+                      }`}>
+                        {rule}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
 
               <div className="text-right font-handwritten text-xl text-coral select-none pt-2">
                 — sagar ✌️
@@ -199,7 +255,10 @@ export default function Home() {
           <div className="space-y-4">
             <ScrapCard attachment="none" rotation="rotate-2" color="cream" className="hover:scale-[1.03]">
               <Link href="/about" className="group space-y-2 block">
-                <span className="text-xs font-handwritten text-coral select-none block">Android / Kotlin</span>
+                <div className="flex items-center justify-between text-xs font-handwritten text-coral select-none">
+                  <span>Android / Kotlin</span>
+                  <span className="text-[11px] text-stone-500 font-sans font-normal">3 min read</span>
+                </div>
                 <h4 className="font-bold text-sm sm:text-base group-hover:text-coral transition-colors font-sans">
                   Building an offline-first Android app with Room DB
                 </h4>
@@ -212,7 +271,10 @@ export default function Home() {
 
             <ScrapCard attachment="none" rotation="-rotate-1" color="white" className="hover:scale-[1.03]">
               <Link href="/projects" className="group space-y-2 block">
-                <span className="text-xs font-handwritten text-coral select-none block">Next.js / SSR</span>
+                <div className="flex items-center justify-between text-xs font-handwritten text-coral select-none">
+                  <span>Next.js / SSR</span>
+                  <span className="text-[11px] text-stone-500 font-sans font-normal">4 min read</span>
+                </div>
                 <h4 className="font-bold text-sm sm:text-base group-hover:text-coral transition-colors font-sans">
                   SSR performance wins with Next.js on Vercel
                 </h4>
@@ -234,66 +296,88 @@ export default function Home() {
         {/* Interactive Contact Form Component */}
         <ContactForm />
 
-        {/* Quick Contact Links Row */}
-        <div className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left select-text">
-          <a 
-            href="mailto:sagarsonewane2511@gmail.com" 
-            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-amber-50 hover:border-amber-300 rounded-md group transition-all min-w-0 shadow-2xs"
-          >
-            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-900 group-hover:scale-110 transition-transform shrink-0">
-              <Mail size={16} />
+        {/* Quick Contact Links Row & Copy Button */}
+        <div className="max-w-xl mx-auto space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left select-text">
+            <div className="flex items-center justify-between p-3 bg-white border border-stone-200/80 hover:bg-amber-50 hover:border-amber-300 rounded-md group transition-all min-w-0 shadow-2xs">
+              <a href="mailto:sagarsonewane2511@gmail.com" className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-900 group-hover:scale-110 transition-transform shrink-0">
+                  <Mail size={16} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-xs text-ink/50 font-sans block">Direct Email</span>
+                  <span className="text-xs sm:text-sm font-semibold block truncate">sagarsonewane2511@gmail.com</span>
+                </div>
+              </a>
+              <button
+                type="button"
+                onClick={copyEmailToClipboard}
+                title="Copy Email"
+                className="p-1.5 text-stone-400 hover:text-ink hover:bg-stone-100 rounded transition-colors shrink-0 cursor-pointer"
+              >
+                {copiedEmail ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+              </button>
             </div>
-            <div className="min-w-0 flex-1">
-              <span className="text-xs text-ink/50 font-sans block">Direct Email</span>
-              <span className="text-xs sm:text-sm font-semibold block truncate">sagarsonewane2511@gmail.com</span>
-            </div>
-          </a>
 
-          <a 
-            href="https://github.com/Sagar-Sonewane" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-sky-50 hover:border-sky-300 rounded-md group transition-all min-w-0 shadow-2xs"
-          >
-            <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-900 group-hover:scale-110 transition-transform shrink-0">
-              <Github size={16} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <span className="text-xs text-ink/50 font-sans block">GitHub</span>
-              <span className="text-xs sm:text-sm font-semibold block truncate">github.com/Sagar-Sonewane</span>
-            </div>
-          </a>
+            <a 
+              href="https://github.com/Sagar-Sonewane" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-sky-50 hover:border-sky-300 rounded-md group transition-all min-w-0 shadow-2xs"
+            >
+              <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-900 group-hover:scale-110 transition-transform shrink-0">
+                <Github size={16} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-xs text-ink/50 font-sans block">GitHub</span>
+                <span className="text-xs sm:text-sm font-semibold block truncate">github.com/Sagar-Sonewane</span>
+              </div>
+            </a>
 
-          <a 
-            href="https://www.linkedin.com/in/sagar-sonewane/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-rose-50 hover:border-rose-300 rounded-md group transition-all min-w-0 shadow-2xs"
-          >
-            <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-900 group-hover:scale-110 transition-transform shrink-0">
-              <Linkedin size={16} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
-              <span className="text-xs sm:text-sm font-semibold block truncate">linkedin.com/in/sagar-sonewane</span>
-            </div>
-          </a>
+            <a 
+              href="https://www.linkedin.com/in/sagar-sonewane/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-rose-50 hover:border-rose-300 rounded-md group transition-all min-w-0 shadow-2xs"
+            >
+              <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-900 group-hover:scale-110 transition-transform shrink-0">
+                <Linkedin size={16} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
+                <span className="text-xs sm:text-sm font-semibold block truncate">linkedin.com/in/sagar-sonewane</span>
+              </div>
+            </a>
 
-          <a 
-            href="tel:+919588459145" 
-            className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-emerald-50 hover:border-emerald-300 rounded-md group transition-all min-w-0 shadow-2xs"
-          >
-            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-900 group-hover:scale-110 transition-transform shrink-0">
-              <Phone size={16} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <span className="text-xs text-ink/50 font-sans block">Phone</span>
-              <span className="text-xs sm:text-sm font-semibold block truncate">+91 95884 59145</span>
-            </div>
-          </a>
+            <a 
+              href="tel:+919588459145" 
+              className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-emerald-50 hover:border-emerald-300 rounded-md group transition-all min-w-0 shadow-2xs"
+            >
+              <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-900 group-hover:scale-110 transition-transform shrink-0">
+                <Phone size={16} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-xs text-ink/50 font-sans block">Phone</span>
+                <span className="text-xs sm:text-sm font-semibold block truncate">+91 95884 59145</span>
+              </div>
+            </a>
+          </div>
+
+          {/* Toast Notification */}
+          <AnimatePresence>
+            {copiedEmail && (
+              <motion.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
+                className="text-center text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 py-1.5 px-3 rounded-md max-w-xs mx-auto shadow-2xs"
+              >
+                Copied email to clipboard! 📋
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </motion.section>
     </motion.div>
   );
 }
-

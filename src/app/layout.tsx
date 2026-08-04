@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   }
 };
 
+import BackToTop from "@/components/BackToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,6 +52,9 @@ export default function RootLayout({
 
         {/* Global Navbar */}
         <Navbar />
+
+        {/* Floating Back to Top Button */}
+        <BackToTop />
 
         {/* Decorative margin elements - scrapbook style doodles / tape */}
         <div className="absolute top-28 left-4 hidden xl:block pointer-events-none select-none z-10">

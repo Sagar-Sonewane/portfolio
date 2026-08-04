@@ -116,6 +116,42 @@ body {
   transform: scaleX(1);
 }
 
+/* Scrapbook Rubber Stamp Styles */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 2px stroke;
+  transform: rotate(var(--stamp-rotate, -2deg));
+  box-shadow: 1px 1px 0px rgba(28,28,26,0.15);
+  user-select: none;
+}
+
+.stamp-approved {
+  background-color: rgba(232, 196, 104, 0.25);
+  color: #855307;
+  border: 1.5px dashed #E8C468;
+}
+
+.stamp-merit {
+  background-color: rgba(217, 99, 59, 0.15);
+  color: #D9633B;
+  border: 1.5px dashed #D9633B;
+}
+
+.stamp-verified {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #047857;
+  border: 1.5px dashed #10B981;
+}
+
 /* Hide scrollbar for clean aesthetics but keep functional */
 ::-webkit-scrollbar {
   width: 10px;

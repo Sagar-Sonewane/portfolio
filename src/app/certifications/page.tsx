@@ -287,7 +287,13 @@ export default function CertificationsPage() {
                         <Icon size={14} />
                         <span>{item.category}</span>
                       </div>
-                      <span className="text-xs font-bold text-ink bg-stone-100 border border-stone-200 px-2 py-0.5 rounded shadow-2xs">
+                      <span className={`stamp-badge ${
+                        item.category === "awards" 
+                          ? "stamp-merit" 
+                          : item.category === "certifications" 
+                          ? "stamp-verified" 
+                          : "stamp-approved"
+                      }`}>
                         {item.status}
                       </span>
                     </div>
