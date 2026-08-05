@@ -83,10 +83,11 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Submission Error:", err);
       setStatus("error");
-      setErrorMsg(err.message || "Failed to send message. Please try again or use the direct mail button.");
+      const message = err instanceof Error ? err.message : "Failed to send message. Please try again or use the direct mail button.";
+      setErrorMsg(message);
     }
   };
 

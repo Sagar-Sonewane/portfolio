@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, ArrowRight, MapPin, Sparkles, BookOpen, Award, Check, Copy } from "lucide-react";
+import { Mail, Phone, ArrowRight, MapPin, BookOpen, Award, Check, Copy } from "lucide-react";
 import { Github, Linkedin } from "@/components/Icons";
 import Link from "next/link";
 import Image from "next/image";

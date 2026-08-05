@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Award, CheckCircle2, Trophy, Star, Sparkles, ExternalLink, ShieldCheck, Code2 } from "lucide-react";
 import ScrapCard from "@/components/ScrapCard";
 import Badge from "@/components/Badge";
-import Tape from "@/components/Tape";
 
 type CategoryFilter = "all" | "certifications" | "awards" | "achievements";
 

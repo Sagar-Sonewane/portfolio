@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Layers, Sparkles, CheckCircle2, ShieldCheck, Code2 } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Github } from "@/components/Icons";
 import ScrapCard from "@/components/ScrapCard";
 import Badge from "@/components/Badge";
