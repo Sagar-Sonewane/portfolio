@@ -26,10 +26,12 @@ export async function POST(req: Request) {
       );
     }
 
-    // Send email via Resend API
+    // Send email via Resend API (Sending to Resend account owner email for unverified onboarding domain)
+    const recipientEmail = process.env.CONTACT_RECEIVER_EMAIL || "sagarsonewane1@gmail.com";
+
     const response = await resend.emails.send({
       from: "Sagar Portfolio <onboarding@resend.dev>",
-      to: ["sagarsonewane2511@gmail.com"],
+      to: [recipientEmail],
       replyTo: email,
       subject: `[${topic}] New Portfolio Message from ${name}`,
       html: `
