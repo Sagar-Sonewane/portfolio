@@ -49,7 +49,7 @@ export async function POST(req: Request) {
             </tr>
             <tr>
               <td style="padding: 8px 0; border-bottom: 1px solid #E1DDD3; font-weight: bold;">Topic:</td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #E1DDD3;">span style="background-color: #FEF3C7; padding: 2px 8px; border-radius: 4px;">${topic}</span></td>
+              <td style="padding: 8px 0; border-bottom: 1px solid #E1DDD3;"><span style="background-color: #FEF3C7; color: #855307; font-weight: bold; padding: 3px 10px; border-radius: 4px; border: 1px solid #FCD34D;">${topic}</span></td>
             </tr>
           </table>
 
