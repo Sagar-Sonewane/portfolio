@@ -45,7 +45,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name.trim()) {
@@ -65,11 +65,29 @@ export default function ContactForm() {
     }
 
     setStatus("submitting");
+    setErrorMsg("");
 
-    // Simulate interactive sending
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
       setStatus("success");
-    }, 1200);
+    } catch (err: any) {
+      console.error("Submission Error:", err);
+      setStatus("error");
+      setErrorMsg(err.message || "Failed to send message. Please try again or use the direct mail button.");
+    }
   };
 
   const handleReset = () => {
