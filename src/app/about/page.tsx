@@ -305,7 +305,7 @@ export default function About() {
                   <div>
                     <span className="font-semibold block text-xs text-ink/60">LeetCode Profile</span>
                     <a 
-                      href="https://leetcode.com/" 
+                      href="https://leetcode.com/u/sagar-sonewane/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-xs md:text-sm font-bold text-coral hover:underline inline-flex items-center gap-1 group select-none"
