@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Printer } from "lucide-react";
-import { Github, Linkedin } from "@/components/Icons";
+import { Github, Linkedin, LeetCode } from "@/components/Icons";
 import ScrapCard from "@/components/ScrapCard";
 
 export default function Resume() {
@@ -103,6 +103,15 @@ export default function Resume() {
                 >
                   <Linkedin size={14} />
                   linkedin.com/in/sagar-sonewane
+                </a>
+                <a 
+                  href="https://leetcode.com/u/sagar-sonewane/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-coral transition-colors font-semibold"
+                >
+                  <LeetCode size={14} />
+                  leetcode.com/u/sagar-sonewane
                 </a>
               </div>
             </div>

@@ -42,3 +42,18 @@ export const Linkedin = ({ size = 24, className, style, width, height, ...props 
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
+
+export const LeetCode = ({ size = 24, className, style, width, height, ...props }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    style={style}
+    width={width || size}
+    height={height || size}
+    {...props}
+  >
+    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.17 6.1a1.375 1.375 0 0 0 1.944 1.944l5.352-5.352a.375.375 0 0 1 .53 0l3.87 3.87a.375.375 0 0 1 0 .53L9.61 16.347a.375.375 0 0 1-.53 0L5.21 12.478a.375.375 0 0 1 0-.53l1.838-1.838a1.375 1.375 0 1 0-1.944-1.944L3.266 10a2.375 2.375 0 0 0 0 3.359l3.87 3.87a2.375 2.375 0 0 0 3.359 0l9.256-9.255a2.375 2.375 0 0 0 0-3.359L15.88.438A1.374 1.374 0 0 0 13.483 0z" />
+    <path d="M4.5 15.75a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15z" />
+  </svg>
+);

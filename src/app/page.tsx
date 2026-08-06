@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, ArrowRight, MapPin, BookOpen, Award, Check, Copy } from "lucide-react";
-import { Github, Linkedin } from "@/components/Icons";
+import { Github, Linkedin, LeetCode } from "@/components/Icons";
 import Link from "next/link";
 import Image from "next/image";
 import ScrapCard from "@/components/ScrapCard";
@@ -346,6 +346,21 @@ export default function Home() {
               <div className="min-w-0 flex-1">
                 <span className="text-xs text-ink/50 font-sans block">LinkedIn</span>
                 <span className="text-xs sm:text-sm font-semibold block truncate">linkedin.com/in/sagar-sonewane</span>
+              </div>
+            </a>
+
+            <a 
+              href="https://leetcode.com/u/sagar-sonewane/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 bg-white border border-stone-200/80 hover:bg-amber-50 hover:border-amber-300 rounded-md group transition-all min-w-0 shadow-2xs"
+            >
+              <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-900 group-hover:scale-110 transition-transform shrink-0">
+                <LeetCode size={16} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-xs text-ink/50 font-sans block">LeetCode</span>
+                <span className="text-xs sm:text-sm font-semibold block truncate">leetcode.com/u/sagar-sonewane</span>
               </div>
             </a>
 

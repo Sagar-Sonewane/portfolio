@@ -72,7 +72,7 @@ export default function CertificationsPage() {
         "Applied algorithmic thinking to write clean, high-performance production code in web & mobile apps."
       ],
       linkText: "LeetCode Profile",
-      linkUrl: "https://leetcode.com/"
+      linkUrl: "https://leetcode.com/u/sagar-sonewane/"
     },
     {
       id: "cert-2",
