@@ -32,21 +32,21 @@ export default function Projects() {
     },
     {
       id: 2,
-      category: "web",
-      title: "Neighbour",
-      subtitle: "Local Resource Rental Platform",
+      category: "ai",
+      title: "Transcribe Studio",
+      subtitle: "Audio-to-Dataset Pipeline for Speech & Voice AI",
       liveLink: "",
-      githubLink: "https://github.com/Sagar-Sonewane/neighbr",
+      githubLink: "https://github.com/Sagar-Sonewane/transcribe_studio",
       status: "opensource",
-      metric: "8+ Categories Managed",
-      tags: ["React.js", "PHP", "MySQL", "JavaScript"],
+      metric: "4x Faster-Whisper",
+      tags: ["Python", "Faster-Whisper", "Gradio", "Voice AI", "FFmpeg", "CTranslate2"],
       color: "yellow" as const,
-      rotation: "rotate-2",
-      attachment: "paperclip" as const,
+      rotation: "rotate-1",
+      attachment: "tape-corners" as const,
       points: [
-        "Co-developed a full-stack peer-to-peer sharing marketplace in a 2-member agile team, leading the frontend React development and database integration.",
-        "Programmed local discovery filters, secure user auth, and real-time request management modules for 8+ categories of household items.",
-        "Designed and consumed REST API endpoints to synchronize live booking requests and availability calendars without delay."
+        "Architected a local-first voice AI dataset pipeline powered by Faster-Whisper (CTranslate2), delivering up to 4x transcription speedup with 100% offline privacy.",
+        "Built an interactive review studio in Gradio featuring real-time audio playback, inline transcript editing, VAD silence filtering, and 16 kHz mono WAV audio standardization via FFmpeg.",
+        "Automated paired dataset packaging with LJSpeech-style metadata.csv, metadata.jsonl, and instant ZIP exports ready for fine-tuning TTS and STT models."
       ]
     },
     {
@@ -70,6 +70,25 @@ export default function Projects() {
     },
     {
       id: 4,
+      category: "web",
+      title: "Neighbour",
+      subtitle: "Local Resource Rental Platform",
+      liveLink: "",
+      githubLink: "https://github.com/Sagar-Sonewane/neighbr",
+      status: "opensource",
+      metric: "8+ Categories Managed",
+      tags: ["React.js", "PHP", "MySQL", "JavaScript"],
+      color: "cream" as const,
+      rotation: "rotate-2",
+      attachment: "paperclip" as const,
+      points: [
+        "Co-developed a full-stack peer-to-peer sharing marketplace in a 2-member agile team, leading the frontend React development and database integration.",
+        "Programmed local discovery filters, secure user auth, and real-time request management modules for 8+ categories of household items.",
+        "Designed and consumed REST API endpoints to synchronize live booking requests and availability calendars without delay."
+      ]
+    },
+    {
+      id: 5,
       category: "ai",
       title: "AI Hiring Assistant & Dashboard",
       subtitle: "Academic Team Leadership Project",
@@ -78,8 +97,8 @@ export default function Projects() {
       status: "teamlead",
       metric: "4-Member Developer Squad",
       tags: ["Team Lead", "AI Recommendations", "Dashboard", "Python"],
-      color: "cream" as const,
-      rotation: "rotate-1",
+      color: "white" as const,
+      rotation: "-rotate-1",
       attachment: "pin" as const,
       points: [
         "Led a 4-member developer squad to prototype an AI recommendation portal connecting students with placement opportunities.",
@@ -97,8 +116,8 @@ export default function Projects() {
   const categories = [
     { id: "all", label: "All Works" },
     { id: "web", label: "Full-Stack Web" },
-    { id: "android", label: "Native Android" },
-    { id: "ai", label: "AI & Squad" }
+    { id: "ai", label: "AI & Voice / ML" },
+    { id: "android", label: "Native Android" }
   ] as const;
 
   const containerVariants = {
@@ -132,7 +151,7 @@ export default function Projects() {
           Featured Projects & Code
         </h1>
         <p className="text-xs sm:text-sm md:text-base text-ink/75 max-w-2xl leading-relaxed">
-          Production business websites, peer-to-peer web platforms, offline-first Android applications, and team leadership projects built with modern frameworks.
+          Production business websites, speech & voice AI pipelines, native Android apps, and full-stack web platforms built with modern frameworks.
         </p>
 
         {/* Interactive Filter Category Chips */}

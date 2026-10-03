@@ -255,6 +255,19 @@ export default function Resume() {
 
                 <div>
                   <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-1">
+                    <h4 className="font-bold text-xs md:text-sm text-ink flex items-center gap-1.5">
+                      Transcribe Studio — Voice AI & Dataset Pipeline
+                    </h4>
+                    <span className="text-xs text-stone-500 font-sans italic">Python, Faster-Whisper, Gradio, FFmpeg</span>
+                  </div>
+                  <ul className="list-disc pl-4 space-y-1 mt-1 text-xs md:text-sm text-ink/80 font-sans font-medium">
+                    <li>Engineered an offline-first speech dataset pipeline with Faster-Whisper (CTranslate2) delivering 4x speedup.</li>
+                    <li>Built interactive review UI in Gradio with audio playback, inline editing, and LJSpeech/JSONL export for TTS/STT.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-1">
                     <h4 className="font-bold text-xs md:text-sm text-ink">
                       Neighbour — Peer Resource Marketplace
                     </h4>
