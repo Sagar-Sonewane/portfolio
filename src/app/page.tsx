@@ -124,11 +124,11 @@ export default function Home() {
               {/* Photo Box */}
               <div className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] bg-stone-100 border border-stone-200 relative overflow-hidden shadow-inner">
                 <Image
-                  src="/sagarphoto.jpg"
+                  src="/sagar-profile.png"
                   alt="Sagar Sonewane"
                   fill
                   sizes="(max-width: 640px) 200px, 220px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
                 
